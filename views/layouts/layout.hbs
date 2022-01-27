@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Rudran Variyath - {{title}}</title>
+  <!-- Favicons -->
+  <link href="/images/favicon.png" rel="icon">
+  <link href="/images/apple-touch-icon.png" rel="apple-touch-icon">
+  <link rel='stylesheet' href='/stylesheets/main.css' />
+  <link rel='stylesheet' href='/stylesheets/bootstrap.min.css' />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/css/pikaday.min.css">
+
+</head>
+{{#if other}}
+<header>
+  {{#if admin}}
+  {{>admin-partial}}
+  {{else}}
+  {{>user-partial}}
+  {{/if}}
+</header>
+{{/if}}
+{{{body}}}
+{{#if other}}
+<footer class="page-footer">
+  <div class="container">
+    <div class="social-icons">
+      <a href="https://www.facebook.com/rudran.variyath"> <i class="icon ion-social-facebook"></i></a>
+      <a href="https://www.instagram.com/rudranvariyath/"> <i class="icon ion-social-instagram-outline"></i></a>
+      <a href="https://twitter.com/rudranvariyath"> <i class="icon ion-social-twitter"></i></a>
+    </div>
+  </div>
+</footer>
+{{/if}}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-beta3/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/pikaday.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"
+  integrity="sha512-3J8teBiHrSyaaRBajZyIEtpDsXdPq1gsznKWIVb5CnorQuFhjWGhWe54z8YNnHHr7MZuExb9m5kvf964HiT1Sw=="
+  crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="/javascripts/main.js"></script>
+
+</html>

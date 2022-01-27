@@ -1,0 +1,14 @@
+<main class="page projets-page">
+    <section class="portfolio-block projects compact-grid">
+        <div class="heading">
+            <h2>Poems on youtube</h2>
+        </div>
+        <div class="row g-0">
+            {{#each poems}}
+            <div class="embed-responsive embed-responsive-16by9">
+                <iframe class="embed-responsive-item" src="{{this.poemSrc}}" allowfullscreen></iframe>
+            </div>
+            {{/each}}
+        </div>
+    </section>
+</main>
