@@ -1,14 +1,69 @@
-<main class="page projets-page">
-    <section class="portfolio-block projects compact-grid">
-        <div class="heading">
-            <h2>Poems on youtube</h2>
-        </div>
-        <div class="row g-0">
-            {{#each poems}}
-            <div class="embed-responsive embed-responsive-16by9">
-                <iframe class="embed-responsive-item" src="{{this.poemSrc}}" allowfullscreen></iframe>
+<main class="page about-page">
+    <section class="portfolio-block about">
+        <div class="container">
+            <div class="heading">
+                <h2>{{title}}</h2>
             </div>
-            {{/each}}
-        </div>
+            <div class="row">
+                {{#each poems}}
+                <div class="col-lg-4 col-md-12 mb-4 mb-lg-0 p-5">
+                    <div class="bg-image hover-overlay ripple shadow-1-strong rounded" data-ripple-color="light">
+                        <a href="#!" data-bs-toggle="modal" data-bs-target="#Video{{@index}}">
+                            <img src="https://img.youtube.com/vi/{{this.poemSrc}}/hqdefault.jpg" class="w-100" />
+                            <div class="badge bg-primary" style="width: 100%;">
+                                {{this.poemTitle}}
+                            </div>
+
+                        </a>
+                        <a href="#!" data-bs-toggle="modal" data-bs-target="#Lyrics{{@index}}">
+                            <div class="badge bg-secondary" style="width: 100%;">
+                                Read this poem
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="Video{{@index}}" tabindex="-1" aria-labelledby="Video{{@index}}Label"
+                    aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                             <div class="badge bg-primary" style="width: 100%;">
+                                {{this.poemTitle}}
+                            </div>
+                            <div class="ratio ratio-16x9">
+                                <iframe src="https://www.youtube.com/embed/{{this.poemSrc}}" title="YouTube video"
+                                    allowfullscreen></iframe>
+                            </div>
+
+                            <div class="text-center py-3">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                    Close
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal fade" id="Lyrics{{@index}}" tabindex="-1" aria-labelledby="Lyrics{{@index}}Label"
+                    aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                             <div class="badge bg-primary" style="width: 100%;">
+                                {{this.poemTitle}}
+                            </div>
+                            <p class="p-3 text-center">
+                                {{this.poemLyrics}}
+                            </p>
+
+                            <div class="text-center py-3">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                    Close
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{/each}}
+
+            </div>
     </section>
 </main>

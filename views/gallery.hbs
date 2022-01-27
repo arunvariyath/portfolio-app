@@ -1,15 +1,31 @@
 <main class="page gallery-page">
-    <section class="portfolio-block projects compact-grid">
-        <div class="heading">
-            <h2>Gallery</h2>
-        </div>
-        <div class="row g-0">
-            {{#each galleryImages}}
-            <div class="col-md-6 col-lg-4 item zoom-on-hover position-relative"><img class="img-fluid image"
-                        src="{{this.imageSrc}}"><span
-                        class="description"><span class="description-heading">{{this.imageTitle}}</span><span
-                            class="description-body">{{this.imageDescription}}</span></span></div>
-            {{/each}}
-        </div>
+    <section class="portfolio-block about">
+        <div class="container">
+            <div class="heading">
+                <h2>{{title}}</h2>
+            </div>
+            <div class="row">
+                {{#each galleryImages}}
+                <div class="col-lg-4 col-md-12 mb-4 mb-lg-0 item position-relative">
+                    <a href="#!" data-bs-toggle="modal" data-bs-target="#Image{{@index}}">
+                        <img class="img-fluid image w-100 shadow-1-strong rounded mb-4" src="{{this.imageSrc}}"></a>
+                </div>
+                <div class="modal fade" id="Image{{@index}}" tabindex="-1" aria-labelledby="Image{{@index}}Label"
+                    aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <img class="img-fluid image shadow-1-strong rounded" src="{{this.imageSrc}}">
+                            <span class="badge bg-secondary text-center"
+                                style="width: 100%;">{{this.imageDescription}}</span>
+                            <div class="text-center py-3">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                    Close
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{/each}}
+            </div>
     </section>
 </main>
