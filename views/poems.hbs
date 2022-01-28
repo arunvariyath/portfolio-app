@@ -9,7 +9,8 @@
                 <div class="col-lg-4 col-md-12 mb-4 mb-lg-0 p-5">
                     <div class="bg-image hover-overlay ripple shadow-1-strong rounded" data-ripple-color="light">
                         <a href="#!" data-bs-toggle="modal" data-bs-target="#Video{{@index}}">
-                            <img src="https://img.youtube.com/vi/{{this.poemSrc}}/hqdefault.jpg" class="w-100" />
+                            {{!-- <img src="https://img.youtube.com/vi/{{this.poemSrc}}/hqdefault.jpg" class="w-100" /> --}}
+                            <img src="{{this.poemImgSrc}}" class="w-100" />
                             <div class="badge bg-primary" style="width: 100%;">
                                 {{this.poemTitle}}
                             </div>
@@ -27,7 +28,7 @@
                     aria-hidden="true">
                     <div class="modal-dialog modal-lg">
                         <div class="modal-content">
-                             <div class="badge bg-primary" style="width: 100%;">
+                            <div class="badge bg-primary" style="width: 100%;">
                                 {{this.poemTitle}}
                             </div>
                             <div class="ratio ratio-16x9">
@@ -47,7 +48,7 @@
                     aria-hidden="true">
                     <div class="modal-dialog modal-lg">
                         <div class="modal-content">
-                             <div class="badge bg-primary" style="width: 100%;">
+                            <div class="badge bg-primary" style="width: 100%;">
                                 {{this.poemTitle}}
                             </div>
                             <p class="p-3 text-center">
