@@ -7,50 +7,41 @@
             <div class="row">
                 {{#each poems}}
                 <div class="col-lg-4 col-md-12 mb-4 mb-lg-0 p-5">
-                    <div class="bg-image hover-overlay ripple shadow-1-strong rounded" data-ripple-color="light">
-                        <a href="#!" data-bs-toggle="modal" data-bs-target="#Video{{@index}}">
-                            {{!-- <img src="https://img.youtube.com/vi/{{this.poemSrc}}/hqdefault.jpg" class="w-100" /> --}}
-                            <img src="{{this.poemImgSrc}}" class="w-100" />
-                            <div class="badge bg-primary" style="width: 100%;">
+                    <div class="bg-image hover-overlay ripple shadow-1-strong rounded video-holder"
+                        data-id='{{this.poemSrc}}' data-ripple-color="light">
+                        <a href="#!" data-bs-toggle="modal" data-bs-target="#VideoModal">
+                            {{#if this.poemTitle}}
+                            <span class="badge badge-pill bg-info poemTitle w-100">
+                                {{this.poemTitle}}</span>
+                            {{/if}}
+                            {{!-- <span class=" bg-success" style="width: 100%;">
                                 {{this.poemTitle}}
-                            </div>
-
+                            </span> --}}
+                            <img src="https://img.youtube.com/vi/{{this.poemSrc}}/hqdefault.jpg" class="w-100" />
+                            <img src="/images/play-button-bw.png" class='yt-play-image'>
+                            <img src="/images/play-button.png" class='yt-play-image-hover'>
+                            {{!-- <img src="{{this.poemImgSrc}}" class="w-100" /> --}}
                         </a>
+                        {{#if this.poemLyrics}}
                         <a href="#!" data-bs-toggle="modal" data-bs-target="#Lyrics{{@index}}">
-                            <div class="badge bg-secondary" style="width: 100%;">
+                            <div class="badge badge-pill bg-danger w-100">
                                 Read this poem
                             </div>
                         </a>
+                        {{/if}}
                     </div>
                 </div>
 
-                <div class="modal fade" id="Video{{@index}}" tabindex="-1" aria-labelledby="Video{{@index}}Label"
-                    aria-hidden="true">
-                    <div class="modal-dialog modal-lg">
-                        <div class="modal-content">
-                            <div class="badge bg-primary" style="width: 100%;">
-                                {{this.poemTitle}}
-                            </div>
-                            <div class="ratio ratio-16x9">
-                                <iframe src="https://www.youtube.com/embed/{{this.poemSrc}}" title="YouTube video"
-                                    allowfullscreen></iframe>
-                            </div>
 
-                            <div class="text-center py-3">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                                    Close
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 <div class="modal fade" id="Lyrics{{@index}}" tabindex="-1" aria-labelledby="Lyrics{{@index}}Label"
                     aria-hidden="true">
-                    <div class="modal-dialog modal-lg">
+                    <div class="modal-dialog modal-xl modal-dialog-centered">
                         <div class="modal-content">
-                            <div class="badge bg-primary" style="width: 100%;">
+                            {{#if this.poemTitle}}
+                            <span class="badge badge-pill bg-info poemTitle">
                                 {{this.poemTitle}}
-                            </div>
+                            </span>
+                            {{/if}}
                             <p class="p-3 text-center">
                                 {{this.poemLyrics}}
                             </p>
@@ -64,7 +55,25 @@
                     </div>
                 </div>
                 {{/each}}
+                <div class="modal fade" id="VideoModal" tabindex="-1" aria-labelledby="VideoLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-xl modal-dialog-centered">
+                        <div class="modal-content">
+                            <span id="popupTitle" class="badge badge-pill bg-info poemTitle">
 
+                            </span>
+                            <div class="ratio ratio-16x9">
+                                <iframe src="#" title="YouTube video" id="VideoFrame" allow="autoplay; encrypted-media"
+                                    allowfullscreen></iframe>
+                            </div>
+
+                            <div class="text-center">
+                                <button type="button" class="btn btn-danger w-100" data-bs-dismiss="modal">
+                                    Close
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
     </section>
 </main>
