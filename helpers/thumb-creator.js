@@ -7,80 +7,81 @@ module.exports = {
 
     createThumbnailImage(data) {
 
-        // We need to register our font file to be used in canvas
-        Canvas.registerFont('public/fonts/Manjari-Bold.ttf', { family: 'Manjari-Bold', weight: 'bold' })
-
-        const width = 600 // width of the image
-        const height = 474 // height of the image
-        const poemTitleArray = data.poemTitle.split(" ");
-        const canvasProps = {
-            width: width,
-            height: height
-        }
-        const canvas = Canvas.createCanvas(canvasProps.width, canvasProps.height)
-        const context = canvas.getContext('2d')
-
-        const titleFontDetails = "70px 'Manjari-Bold'";
-        const nameTitleFontDetails = "25px 'Manjari-Bold' bold";
-        const nameFontDetails = "20px 'Manjari-Bold' bold";
-
-
-        /* This is setting the text baseline to the top of the canvas. */
-        context.fillStyle = '#FFFFFF'
-        global.Image = Canvas.Image;
-        // context.textAlign = 'center'
-
-        // INFO  
-        // if you increase x it will go right
-        // if you increase y it will go down
-
-        const imageProps = {
-            width: width,
-            height: height
-        }
-
-        const mainTitleProps = {
-            y: 100,
-            font: titleFontDetails,
-            x: (0.5 * width),
-            textAlign: 'center',
-            text: poemTitleArray[0]
-        }
-        const singerNameTitleProps = {
-            x: 0.02 * width,
-            y: 0.92 * height,
-            font: nameTitleFontDetails,
-            textAlign: 'left',
-            text: 'ആലാപനം'
-        }
-        const singerNameProps = {
-            x: 0.02 * width,
-            y: 0.98 * height,
-            // maxwidth: 150,
-            font: nameFontDetails,
-            textAlign: 'left',
-            text: data.poemSingerName
-        }
-
-        const writerNameTitleProps = {
-            x: 0.98 * width,
-            y: 0.92 * height,
-            font: nameTitleFontDetails,
-            textAlign: 'right',
-            text: 'രചന'
-        }
-        // context.font = nameFontDetails //TODO 
-        const writerNameProps = {
-            x: 0.98 * width,
-            y: 0.98 * height,
-            // maxwidth: 150,
-            font: nameFontDetails,
-            textAlign: 'right',
-            text: data.poemWriterName
-        }
 
         // Load and draw the background image first
         Canvas.loadImage('public/images/thumb-bg.png').then(image => {
+            // We need to register our font file to be used in canvas
+            Canvas.registerFont('public/fonts/Manjari-Bold.ttf', { family: 'Manjari-Bold', weight: 'bold' })
+
+            const width = image.width; // width of the image
+            const height = image.height // height of the image
+            const poemTitleArray = data.poemTitle.split(" ");
+            const canvasProps = {
+                width: width,
+                height: height
+            }
+            const canvas = Canvas.createCanvas(canvasProps.width, canvasProps.height)
+            const context = canvas.getContext('2d')
+
+            const titleFontDetails = "70px 'Manjari-Bold'";
+            const nameTitleFontDetails = "25px 'Manjari-Bold' bold";
+            const nameFontDetails = "20px 'Manjari-Bold' bold";
+
+
+            /* This is setting the text baseline to the top of the canvas. */
+            context.fillStyle = '#FFFFFF'
+            global.Image = Canvas.Image;
+            // context.textAlign = 'center'
+
+            // INFO  
+            // if you increase x it will go right
+            // if you increase y it will go down
+
+            const imageProps = {
+                width: width,
+                height: height
+            }
+
+            const mainTitleProps = {
+                y: 100,
+                font: titleFontDetails,
+                x: (0.5 * width),
+                textAlign: 'center',
+                text: poemTitleArray[0]
+            }
+            const singerNameTitleProps = {
+                x: 0.02 * width,
+                y: 0.92 * height,
+                font: nameTitleFontDetails,
+                textAlign: 'left',
+                text: 'ആലാപനം'
+            }
+            const singerNameProps = {
+                x: 0.02 * width,
+                y: 0.98 * height,
+                // maxwidth: 150,
+                font: nameFontDetails,
+                textAlign: 'left',
+                text: data.poemSingerName
+            }
+
+            const writerNameTitleProps = {
+                x: 0.98 * width,
+                y: 0.92 * height,
+                font: nameTitleFontDetails,
+                textAlign: 'right',
+                text: 'രചന'
+            }
+            // context.font = nameFontDetails //TODO 
+            const writerNameProps = {
+                x: 0.98 * width,
+                y: 0.98 * height,
+                // maxwidth: 150,
+                font: nameFontDetails,
+                textAlign: 'right',
+                text: data.poemWriterName
+            }
+
 
             // var playBtn = new Image();
             // playBtn.src = 'public/images/play-button.png';     // starts to load the image
@@ -95,7 +96,7 @@ module.exports = {
             else {
                 poemTitleArray.forEach((poemTitleword, index) => {
                     const modifiedMainTitleProps = {
-                        y: (index+1) * 65,
+                        y: (index + 1) * 65,
                         font: titleFontDetails,
                         x: (0.5 * width),
                         textAlign: 'center',

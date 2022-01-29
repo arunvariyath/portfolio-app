@@ -3,8 +3,8 @@
     "use strict";
     var poemTitle = $('.validate-input input[name="poemTitle"]');
     var poemSingerName = $('.validate-input input[name="poemSingerName"]');
-   
-   // Solution for hardcording the dummy data //TODO remove
+
+    // Solution for hardcording the dummy data //TODO remove
     $('.validate-form .input2').each(function () {
         if ($(this).val().trim() != '') {
             $(this).addClass('has-val');
@@ -71,6 +71,28 @@
         $(thisAlert).removeClass('alert-validate');
     }
 
+
+    $('.imgPoppedUp').each(function () {
+        $(this).click(function () {
+            console.log($(this).attr('src'));
+            $('#bgImageName').val($(this).attr('src'));
+            $('.modal')
+            $('.modal').removeClass('show');
+            //TODO
+            // add 
+            // aria-hidden="true"
+            // change 
+            // style="display: none;"
+            // remove these
+            // aria-modal="true"
+            // role="dialog"
+
+
+            // remove class and style from body
+
+            $('.modal-backdrop').remove();
+        });
+    });
 
 
 })(jQuery);
