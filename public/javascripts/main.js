@@ -151,15 +151,15 @@ $("#VideoModal").on('hidden.bs.modal', function (e) {
 });
 
 
-const elment = document.querySelector('.navbar-nav');
-const elment1 = document.querySelector('.nav-link');
+// const elment = document.querySelector('.navbar-nav');
+// const elment1 = document.querySelector('.nav-link');
 
-elment1.addEventListener("click", () => {
-  elment.classList.toggle('active');
-  elment1.classList.toggle('active');
-})
+// elment1.addEventListener("click", () => {
+//   elment.classList.toggle('active');
+//   elment1.classList.toggle('active');
+// })
 
-document.querySelector('.navbar-nav .nav-item .nav-link').addEventListener("click", () => {
-  this.classList.toggle('active');
-  document.querySelector('.navbar-nav .nav-item .nav-link').classList.toggle('active');
-})
+// document.querySelector('.navbar-nav .nav-item .nav-link').addEventListener("click", () => {
+//   this.classList.toggle('active');
+//   document.querySelector('.navbar-nav .nav-item .nav-link').classList.toggle('active');
+// })

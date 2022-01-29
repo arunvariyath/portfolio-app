@@ -1,9 +1,9 @@
 var express = require('express');
 const jsdom = require('jsdom')
 var router = express.Router();
-const fs = require('fs')
+// const fs = require('fs')
 // const { registerFont, createCanvas, loadImage } = require('canvas')
-var Canvas = require("canvas");
+
 
 const dom = new jsdom.JSDOM("")
 const $ = require('jquery')(dom.window)
@@ -40,39 +40,7 @@ router.get('/gallery', function (req, res, next) {
   res.render('gallery', { title: 'Gallery', other: true, galleryImages })
 });
 
-// function createThumbImage(title, imageName) {
-//   // Define the canvas
-//   const width = 600 // width of the image
-//   const height = 474 // height of the image
-//   const canvas = Canvas.createCanvas(width, height)
-//   const context = canvas.getContext('2d')
 
-//   // We need to register our font file to be used in canvas
-//   Canvas.registerFont('public/fonts/Sign-Painter-Regular.ttf', { family: 'signpainter' })
-
-//   // Define the font style
-//   context.textAlign = 'center'
-//   context.textBaseline = 'top'
-//   context.fillStyle = '#FFFFFF'
-//   context.font = "60px 'signpainter' bold";
-//   global.Image = Canvas.Image;
-//   // Load and draw the background image first
-//   Canvas.loadImage('public/images/thumb-bg.png').then(image => {
-
-//     var playBtn = new Image();
-//     playBtn.src = 'public/images/play-button.png';     // starts to load the image
-//     // Draw the background
-//     context.drawImage(image, 0, 0, 600, 474)
-//     context.drawImage(playBtn, 150, 200, 300, 200);
-//     // Draw the text
-//     context.fillText(title, 300, 50)
-
-//     // Convert the Canvas to a buffer
-//     const buffer = canvas.toBuffer('image/png')
-//     // save image
-//     fs.writeFileSync('public/images/thumbnails/' + imageName + '.png', buffer)
-//   })
-// }
 
 
 /* GET message page. */
