@@ -1,6 +1,8 @@
 var express = require('express');
+const fs = require('fs');
+
 var router = express.Router();
-const { createThumbnailImage } = require('../helpers/thumb-creator');
+const { createThumbnailImage } = require('../helpers/thumb-creator-helper');
 /* Get Admin  Home page */
 router.get('/', function (req, res, next) {
   res.render('admin/admin-home', { title: 'Admin- Home', other: true });
@@ -12,41 +14,39 @@ router.get('/login', function (req, res, next) {
 
 /* GET Thumbnail Creater Page. */
 router.get('/thumbCreator', function (req, res, next) {
-  let galleryImages = [{
-    imageSrc: 'https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp',
-    imageTitle: 'some image',
-    imageDescription: 'some description'
-  }, {
-    imageSrc: 'https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp',
-    imageTitle: 'some image',
-    imageDescription: 'some description'
-  }, {
-    imageSrc: 'https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp',
-    imageTitle: 'some image',
-    imageDescription: 'some description'
-  }, {
-    imageSrc: 'https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp',
-    imageTitle: 'some image',
-    imageDescription: 'some description'
-  }]
+  const dir = 'public/images/templateImages';
+  let templateImages = []
+  fs.readdir(dir, (err, files) => {
+
+    // for (var file in files) {
+    //   templateImages.push({ imageSrc: file })
+    // }
+    files.forEach((file) => {
+      console.log(file);
+      templateImages.push({ imageSrc: '/images/templateImages/' + file })
+    })
+    //templateImages.
+
+    console.log(templateImages);
+
+    //imageSrc
+  });
 
 
-  res.render('admin/thumb-creator', { title: 'Thumbnail creator', other: false, galleryImages });
+
+
+  res.render('admin/thumb-creator', { title: 'Thumbnail creator', other: false, templateImages });
 });
 /* POST Thumbnail Creater Page. */
 router.post('/thumbCreator', function (req, res, next) {
-  var body = req.body;
-  if (body.bgImageName = '' || body.bgImageName == undefined)
-    body.bgImageName = 'public/images/thumb-bg.png'
-  else
-    body.bgImageName = 'public/images/' + body.bgImageName
+  const es = req.body;
 
-  createThumbnailImage(body)
+  createThumbnailImage(es)
   var response = req.body;
   title = 'Created Thumbnail'
   response.other = false
 
-  res.render('admin/thumb-created', response);
+  res.render('admin/show-new-thumbnail', response);
 });
 
 module.exports = router;

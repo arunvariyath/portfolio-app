@@ -73,16 +73,14 @@ async function getVideoTitle(videoId) {
     })
   return title;
 }
+
 /* GET about page. */
 router.get('/poems', function (req, res, next) {
   poems.forEach(function (x, index) {
     if (x.poemTitle == undefined)
       getVideoTitle(x.poemSrc).then(data => x.poemTitle = data)
     if (x.poemTitle == undefined)
-
       x.poemImgSrc = '/images/thumbnails/' + x.poemTitle + '.png'
-    // console.log('SRC:' + x.poemImgSrc)
-    //createThumbImage(x.poemTitle, x.fileName)
   });
 
   res.render('poems', { title: 'Poems', other: true, poems })

@@ -74,23 +74,12 @@
 
     $('.imgPoppedUp').each(function () {
         $(this).click(function () {
-            console.log($(this).attr('src'));
-            $('#bgImageName').val($(this).attr('src'));
-            $('.modal')
-            $('.modal').removeClass('show');
-            //TODO
-            // add 
-            // aria-hidden="true"
-            // change 
-            // style="display: none;"
-            // remove these
-            // aria-modal="true"
-            // role="dialog"
 
+            var filename = $(this).attr('src').split("/").pop()
+            $('#bgImageName').val(filename);
 
-            // remove class and style from body
+            $('#closePopBtn').trigger('click');
 
-            $('.modal-backdrop').remove();
         });
     });
 

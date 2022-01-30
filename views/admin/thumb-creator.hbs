@@ -39,14 +39,15 @@
                         <span class="focus-input2" data-placeholder="Singer Name"></span>
                     </div>
 
-
-                    <div>
+                    <div class="m-3 text-center">
                         <a href="#!" data-bs-toggle="modal" data-bs-target="#Image0">
                             <button class="btn btn-primary">
                                 Select Background Image
                             </button>
                         </a>
                     </div>
+<input class="d-none" type="text" name="poemWriterName" value="രുദ്രൻ വാരിയത്ത്">
+<input class="d-none" type="text" name="bgImageName" id="bgImageName">
                     <div class="container-contact2-form-btn">
                         <div class="wrap-contact2-form-btn">
                             <div class="contact2-form-bgbtn"></div>
@@ -55,8 +56,7 @@
                             </button>
                         </div>
                     </div>
-                    <input class="d-none" type="text" name="poemWriterName" value="രുദ്രൻ വാരിയത്ത്">
-                    <input class="d-none" type="text" name="bgImageName" id="bgImageName">
+
 
                 </form>
             </div>
@@ -64,24 +64,32 @@
     </div>
 
 
-    {{#each galleryImages}}
-    <div class="modal fade" id="Image{{@index}}" tabindex="-1" aria-labelledby="Image{{@index}}Label"
-        aria-hidden="true">
+    <div class="modal fade" id="Image0" tabindex="-1" aria-labelledby="Image0" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
-                <div class="col-lg-4 col-md-12 mb-4 mb-lg-0 item position-relative">
-                    <img class="img-fluid image w-100 shadow-1-strong rounded mb-4 imgPoppedUp" src="{{this.imageSrc}}">
+                <main class="page">
+                    <div class="container">
+                        <span class="contact2-form-title pb-2">
+                            Select a background image
+                        </span>
+                        <div class="row m-2">
+                            {{#each templateImages}}
+                            <div class="col-lg-4 col-md-12 mb-4 mb-lg-0 item position-relative">
+                                <img class="img-fluid image w-100 shadow-1-strong rounded mb-4 imgPoppedUp" src="{{this.imageSrc}}">
+                            </div>
+                                {{/each}}
+                                </div>
+                                </div>
+                                </main>
+                                </div>
+                                <div class="text-center py-3">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="closePopBtn">
+                    Close
+                </button>
                 </div>
-                <div class="text-center py-3">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                        Close
-                    </button>
                 </div>
-            </div>
-        </div>
-    </div>
-    {{/each}}
 
+    </div>
 
 
 
@@ -92,3 +100,4 @@
         integrity="sha512-ZvZXSc7TvLyNMr3bwgkRPQD2EqlnJ877gNEjv/EGbdve5mtTlRfXYfAhmFjtVyCfHw33lQvVfLwO52B/AzWnoA=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="/javascripts/thumb-creator/thumb-creator.js"></script>
+</body>
