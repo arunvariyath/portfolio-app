@@ -5,11 +5,15 @@ var router = express.Router();
 const { createThumbnailImage } = require('../helpers/thumb-creator-helper');
 /* Get Admin  Home page */
 router.get('/', function (req, res, next) {
-  res.render('admin/admin-home', { title: 'Admin- Home', other: true });
+  res.render('admin/admin-home', { title: 'Admin- Home', other: true, admin: true });
+});
+/* Get Admin  Home page */
+router.get('/home', function (req, res, next) {
+  res.render('admin/admin-home', { title: 'Admin- Home', other: true, admin: true });
 });
 /* GET Login Page . */
 router.get('/login', function (req, res, next) {
-  res.render('admin/login', { title: 'Login', other: false });
+  res.render('admin/login', { title: 'Login', other: false, admin: true });
 });
 
 /* GET Thumbnail Creater Page. */
@@ -32,10 +36,7 @@ router.get('/thumbCreator', function (req, res, next) {
     //imageSrc
   });
 
-
-
-
-  res.render('admin/thumb-creator', { title: 'Thumbnail creator', other: false, templateImages });
+  res.render('admin/thumb-creator', { title: 'Thumbnail creator', other: true, templateImages, admin: true });
 });
 /* POST Thumbnail Creater Page. */
 router.post('/thumbCreator', function (req, res, next) {
@@ -45,6 +46,7 @@ router.post('/thumbCreator', function (req, res, next) {
   var response = req.body;
   title = 'Created Thumbnail'
   response.other = false
+  response.admin = true
 
   res.render('admin/show-new-thumbnail', response);
 });

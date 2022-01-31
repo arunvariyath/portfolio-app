@@ -47,7 +47,7 @@
                             data-placeholder=""></span>
                     </div>
                     <div class="m-3 text-center">
-                        <a href="#!" data-bs-toggle="modal" data-bs-target="#Image0">
+                        <a href="#!" data-bs-toggle="modal" data-bs-target="#TemplateGalleryModal">
                             <button class="btn btn-primary">
                                 Select Background Image
                             </button>
@@ -68,7 +68,8 @@
     </div>
 
 
-    <div class="modal fade" id="Image0" tabindex="-1" aria-labelledby="Image0" aria-hidden="true">
+    <div class="modal fade" id="TemplateGalleryModal" tabindex="-1" aria-labelledby="TemplateGalleryModal"
+        aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <main class="page">
@@ -82,16 +83,16 @@
                                 <img class="img-fluid image w-100 shadow-1-strong rounded mb-4 imgPoppedUp" src="{{this.imageSrc}}">
                             </div>
                             {{/each}}
-                            </div>
-                            </div>
-                            </main>
-                            </div>
-                            <div class="text-center py-3">
+                        </div>
+                        </div>
+                        </main>
+                        </div>
+                        <div class="text-center py-3">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="closePopBtn">
                     Close
                 </button>
             </div>
-            </div>
+        </div>
 
     </div>
 
