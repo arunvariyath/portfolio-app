@@ -3,6 +3,7 @@
     "use strict";
     var poemTitle = $('.validate-input input[name="poemTitle"]');
     var poemSingerName = $('.validate-input input[name="poemSingerName"]');
+    var bgImageName = $('.validate-input input[name="bgImageName"]');
 
     // Solution for hardcording the dummy data //TODO remove
     $('.validate-form .input2').each(function () {
@@ -45,7 +46,11 @@
 
 
         if ($(poemSingerName).val().trim() == '') {
-            showValidate(poemTitle);
+            showValidate(poemSingerName);
+            check = false;
+        }
+        if ($(bgImageName).val().trim() == '') {
+            showValidate(bgImageName);
             check = false;
         }
 
@@ -58,6 +63,7 @@
             hideValidate(this);
         });
     });
+
 
     function showValidate(input) {
         var thisAlert = $(input).parent();
@@ -77,7 +83,7 @@
 
             var filename = $(this).attr('src').split("/").pop()
             $('#bgImageName').val(filename);
-
+            $('#bgImageName').addClass('has-val');
             $('#closePopBtn').trigger('click');
 
         });

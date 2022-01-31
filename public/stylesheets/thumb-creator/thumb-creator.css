@@ -293,6 +293,7 @@ textarea.input2 + .focus-input2::after {
   width: 100%;
 }
 
+
 /*------------------------------------------------------------------
 [ Button ]*/
 .container-contact2-form-btn {
