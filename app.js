@@ -8,6 +8,8 @@ var hbs = exphbs.create({ extname: 'hbs', layoutsDir: __dirname + '/views/layout
 
 var indexRouter = require('./routes/index');
 var adminRouter = require('./routes/admin');
+const fileUpload = require('express-fileupload');
+// const db = require('./config/connection');
 
 var app = express();
 
@@ -25,7 +27,15 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(fileUpload());
 
+// db.connect((error) => {
+
+//   if (error)
+//     console.error("Database Connection Failed !" + error);
+//   else
+//     console.log("Database Connected!");
+// })
 
 app.use('/', indexRouter);
 app.use('/admin', adminRouter);

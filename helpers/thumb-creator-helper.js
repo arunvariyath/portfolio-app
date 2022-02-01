@@ -2,7 +2,7 @@ const Canvas = require("canvas");
 const fs = require('fs')
 module.exports = {
 
-    createThumbnailImage(data) {
+    createThumbnailImage (data) {
 
         var defaultImageLocation = 'public/images/thumb-bg.png'
         var imageLocation;
@@ -15,6 +15,7 @@ module.exports = {
         Canvas.loadImage(imageLocation).then(image => {
             // We need to register our font file to be used in canvas
             Canvas.registerFont('public/fonts/Manjari-Bold.ttf', { family: 'Manjari-Bold', weight: 'bold' })
+            Canvas.registerFont('public/fonts/Gayathri-Regular.ttf', { family: 'Gayathri-Regular' })
 
             const width = image.width; // width of the image
             const height = image.height // height of the image
@@ -26,9 +27,9 @@ module.exports = {
             const canvas = Canvas.createCanvas(canvasProps.width, canvasProps.height)
             const context = canvas.getContext('2d')
 
-            const titleFontDetails = "80px 'Manjari-Bold'";
-            const nameTitleFontDetails = "35px 'Manjari-Bold' bold";
-            const nameFontDetails = "25px 'Manjari-Bold' bold";
+            const titleFontDetails = "120px 'Manjari-Bold'";
+            const nameTitleFontDetails = "35px 'Gayathri-Regular'";
+            const nameFontDetails = "40px 'Manjari-Bold'";
 
 
             /* This is setting the text baseline to the top of the canvas. */
@@ -46,70 +47,107 @@ module.exports = {
             }
 
             const mainTitleProps = {
-                y: 100,
+                y: 120,
                 font: titleFontDetails,
                 x: (0.5 * width),
                 textAlign: 'center',
-                text: poemTitleArray[0]
+                text: data.poemTitle
             }
+
+
+
             const singerNameTitleProps = {
-                x: 0.02 * width,
-                y: 0.92 * height,
+                x: 0.04 * width,
+                y: 0.68 * height,
                 font: nameTitleFontDetails,
                 textAlign: 'left',
                 text: 'ആലാപനം'
             }
-            const singerNameProps = {
-                x: 0.02 * width,
-                y: 0.98 * height,
-                font: nameFontDetails,
-                textAlign: 'left',
-                text: data.poemSingerName
-            }
-
             const writerNameTitleProps = {
-                x: 0.98 * width,
-                y: 0.92 * height,
+                x: 0.93 * width,
+                y: 0.68 * height,
                 font: nameTitleFontDetails,
                 textAlign: 'right',
                 text: 'രചന'
             }
-            // context.font = nameFontDetails //TODO 
+
+
+            const singerPicProps = {
+                x: 0.03 * width,
+                y: 0.70 * height,
+                width: 200,
+                height: 225
+
+            }
+            const writerPicProps = {
+                x: 0.86 * width,
+                y: 0.70 * height,
+                width: 200,
+                height: 225
+            }
+
             const writerNameProps = {
                 x: 0.98 * width,
-                y: 0.98 * height,
+                y: 0.95 * height,
                 font: nameFontDetails,
                 textAlign: 'right',
                 text: data.poemWriterName
             }
-
+            const singerNameProps = {
+                x: 0.02 * width,
+                y: 0.95 * height,
+                font: nameFontDetails,
+                textAlign: 'left',
+                text: data.poemSingerName
+            }
             // var playBtn = new Image();
             // playBtn.src = 'public/images/play-button.png';     // starts to load the image
+            // Draw the YT play button
+            // context.drawImage(playBtn, 150, 200, 300, 200);
+
             // Draw the background
             context.drawImage(image, 0, 0, imageProps.width, imageProps.height)
             // Draw the YT play button
             // context.drawImage(playBtn, 150, 200, 300, 200);
-
-            if (poemTitleArray.length === 1)
+           
+            if (data.poemTitle.length <= 16)
                 // Draw the Title
                 drawText(context, mainTitleProps);
             else {
                 poemTitleArray.forEach((poemTitleword, index) => {
                     const modifiedMainTitleProps = {
-                        y: (index + 1) * 65,
-                        font: titleFontDetails,
-                        x: (0.5 * width),
-                        textAlign: 'center',
+                        y: (index + 1) * 120,
+                        font: mainTitleProps.font,
+                        x: mainTitleProps.x,
+                        textAlign: mainTitleProps.textAlign,
                         text: poemTitleword
                     }
-                    drawText(context, modifiedMainTitleProps);
+                    if (index <= 1)
+                        drawText(context, modifiedMainTitleProps);
                 });
             }
+
+            var singerImg = new Image();
+            singerImg.src = 'public/images/profile-images/singerImg.jpg';
+            // Draw the Singer Photo
+            if (singerNameProps.text.length > 14) {
+                singerPicProps.x = 0.08 * width
+                singerNameTitleProps.x = 0.09 * width
+            }
+            context.drawImage(singerImg, singerPicProps.x, singerPicProps.y, singerPicProps.width, singerPicProps.height)
+
+
+
             // Draw the Singer Title
             drawText(context, singerNameTitleProps);
 
             // Draw the Singer name
             drawText(context, singerNameProps);
+
+            var writerImg = new Image();
+            writerImg.src = 'public/images/profile-images/writerImg.jpg';
+            // Draw the writer Photo
+            context.drawImage(writerImg, writerPicProps.x, writerPicProps.y, writerPicProps.width, writerPicProps.height)
 
             // Draw the Writer Title
             drawText(context, writerNameTitleProps);
@@ -132,14 +170,14 @@ module.exports = {
 
 };
 
-function drawText(context, data) {
+function drawText (context, data) {
 
     context.textAlign = data.textAlign;
     context.font = data.font;
     context.fillText(data.text, data.x, data.y)
 }
 
-function getImageFromLocation(imgSrc) {
+function getImageFromLocation (imgSrc) {
     return 'public/images/templateImages/' + imgSrc;
 
 }

@@ -4,6 +4,9 @@
     var poemTitle = $('.validate-input input[name="poemTitle"]');
     var poemSingerName = $('.validate-input input[name="poemSingerName"]');
     var bgImageName = $('.validate-input input[name="bgImageName"]');
+    var writerName = $('.validate-input input[name="poemWriterName"]');
+    var writerImgFile = $('#writerImgFile');
+    var singerImgFile = $('#singerImgFile');
 
     // Solution for hardcording the dummy data //TODO remove
     $('.validate-form .input2').each(function () {
@@ -25,6 +28,7 @@
             else {
                 $(this).removeClass('has-val');
             }
+
         })
     })
 
@@ -39,18 +43,31 @@
     $('.validate-form').on('submit', function () {
         var check = true;
 
-        if ($(poemTitle).val().trim() == '') {
+        if (poemTitle.val().trim() == '') {
             showValidate(poemTitle);
             check = false;
         }
 
-
-        if ($(poemSingerName).val().trim() == '') {
+        if (poemSingerName.val().trim() == '') {
             showValidate(poemSingerName);
             check = false;
         }
-        if ($(bgImageName).val().trim() == '') {
+
+        if (writerName.val().trim() == '') {
+            showValidate(writerName);
+            check = false;
+        }
+
+        if (bgImageName.val().trim() == '') {
             showValidate(bgImageName);
+            check = false;
+        }
+        if (writerImgFile.length === 0) {
+            showValidate(writerImgFile);
+            check = false;
+        }
+        if (singerImgFile.length === 0) {
+            showValidate(singerImgFile);
             check = false;
         }
 
@@ -64,14 +81,26 @@
         });
     });
 
+    $('#btnSelectBgImage').on('click', function () {
+        var bgImageName = $('.validate-input input[name="bgImageName"]');
+        hideValidate(bgImageName);
+    });
+    $('#writerImgFile').on('click', function () {
+        hideValidate(this);
+    });
+    $('#singerImgFile').on('click', function () {
+        hideValidate(this);
+    });
 
-    function showValidate(input) {
+
+
+    function showValidate (input) {
         var thisAlert = $(input).parent();
 
         $(thisAlert).addClass('alert-validate');
     }
 
-    function hideValidate(input) {
+    function hideValidate (input) {
         var thisAlert = $(input).parent();
 
         $(thisAlert).removeClass('alert-validate');

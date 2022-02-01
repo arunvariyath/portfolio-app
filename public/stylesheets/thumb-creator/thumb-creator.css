@@ -379,6 +379,9 @@ textarea.input2 + .focus-input2::after {
 .validate-input {
   position: relative;
 }
+.validate-input-file {
+  position: relative;
+}
 
 .alert-validate::before {
   content: attr(data-validate);
@@ -410,6 +413,8 @@ textarea.input2 + .focus-input2::after {
   -o-transition: opacity 0.4s;
   -moz-transition: opacity 0.4s;
   transition: opacity 0.4s;
+  visibility: visible;
+  opacity: 1;
 }
 
 .alert-validate::after {
@@ -426,16 +431,18 @@ textarea.input2 + .focus-input2::after {
   -o-transform: translateY(-50%);
   transform: translateY(-50%);
   right: 8px;
-}
-
-.alert-validate:hover:before {
   visibility: visible;
   opacity: 1;
 }
 
+.alert-validate:hover:before {
+  /* visibility: visible;
+  opacity: 1; */
+}
+
 @media (max-width: 992px) {
   .alert-validate::before {
-    visibility: visible;
-    opacity: 1;
+    /* visibility: visible;
+    opacity: 1; */
   }
 }
