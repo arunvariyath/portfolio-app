@@ -32,7 +32,7 @@ router.post('/thumbCreator', function (req, res, next) {
   let singerImg = req.files.singerImg
   singerImg.mv('public/images/profile-images/singerImg.jpg', (err, done) => {
     if (!err) {
-      let writerImg = req.files.singerImg
+      let writerImg = req.files.writerImg
       writerImg.mv('public/images/profile-images/writerImg.jpg', (err, done) => {
         if (!err) {
           createThumbnailImage(es)

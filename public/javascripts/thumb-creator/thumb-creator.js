@@ -85,12 +85,12 @@
         var bgImageName = $('.validate-input input[name="bgImageName"]');
         hideValidate(bgImageName);
     });
-    $('#writerImgFile').on('click', function () {
-        hideValidate(this);
-    });
-    $('#singerImgFile').on('click', function () {
-        hideValidate(this);
-    });
+    // $('#writerImgFile').on('click', function () {
+    //     hideValidate(this);
+    // });
+    // $('#singerImgFile').on('click', function () {
+    //     hideValidate(this);
+    // });
 
 
 
@@ -109,7 +109,6 @@
 
     $('.imgPoppedUp').each(function () {
         $(this).click(function () {
-
             var filename = $(this).attr('src').split("/").pop()
             $('#bgImageName').val(filename);
             $('#bgImageName').addClass('has-val');

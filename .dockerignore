@@ -1,3 +1,3 @@
 node_modules/
 public/images/thumbnails/*
-# public/images/profile-images/*
+public/images/profile-images/*
