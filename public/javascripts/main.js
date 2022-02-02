@@ -139,7 +139,8 @@ function _calculateAge (birthday) { // birthday is a date
 }
 jQuery(function () {
   if ($('#tree').length)
-    var family = createFamilyTree();
+    createFamilyTree();
+
 });
 
 $(document).on("click", ".video-holder", function () {
@@ -155,16 +156,18 @@ $("#VideoModal").on('hidden.bs.modal', function (e) {
   $("#VideoFrame").attr("src", '#');
 });
 function createFamilyTree () {
-  new FamilyTree(document.getElementById("tree"), {
-    scaleInitial: FamilyTree.match.width,
+  // var ;
+  var family = new FamilyTree(document.getElementById("tree"), {
+    // scaleInitial: FamilyTree.match.width,
     scaleInitial: FamilyTree.match.boundary,
+    editForm: { titleBinding: "Name", photoBinding: "ImgUrl" },
     // scaleInitial:FamilyTree.match.height ,
     template: 'hugo',
     nodeBinding: {
       field_0: "name"
     },
-    nodes: [
-      { id: 1, pids: [2], mid: 16, fid: 17, name: "Rudran Variyath" },
+    nodes : [
+      { id: 1, pids: [2], mid: 16, fid: 17, name: "Rudran Variyath", ImgUrl: "/images/avatars/avatar.jpg" },
       { id: 2, pids: [1], mid: 14, fid: 15, name: "Shylaja M N" },
       { id: 3, pids: [4], mid: 2, fid: 1, name: "Arun R Variyath" },
       { id: 4, pids: [3], mid: 28, fid: 29, name: "Aparna" },
@@ -235,6 +238,13 @@ function createFamilyTree () {
       { id: 70, pids: [71], mid: 67, fid: 66, name: "Mummy" },
       { id: 71, pids: [70], name: "Pappa" },
     ]
+
+  });
+  // family.load(jsonData);
+  family.on('click', function (sender, args) {
+    // sender.editUI.show(args.node.id, false); 
+    sender.editUI.show(args.node.id, true);//  details mode
+    return false; //to cansel the click event
   });
 }
 
