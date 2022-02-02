@@ -27,7 +27,7 @@ module.exports = {
             const canvas = Canvas.createCanvas(canvasProps.width, canvasProps.height)
             const context = canvas.getContext('2d')
 
-            const titleFontDetails = "120px 'Manjari-Bold'";
+            const titleFontDetails = "250px 'Manjari-Bold'";
             const nameTitleFontDetails = "35px 'Gayathri-Regular'";
             const nameFontDetails = "40px 'Manjari-Bold'";
 
@@ -46,9 +46,9 @@ module.exports = {
                 height: height
             }
 
-            const mainTitleProps = {
-                y: 120,
-                font: titleFontDetails,
+            let mainTitleProps = {
+                y: 350,
+                font: "350px 'Manjari-Bold'",
                 x: (0.5 * width),
                 textAlign: 'center',
                 text: data.poemTitle
@@ -107,17 +107,24 @@ module.exports = {
 
             // Draw the background
             context.drawImage(image, 0, 0, imageProps.width, imageProps.height)
+            context.strokeStyle = "#ffff";
+            context.lineWidth = 15;
+            context.strokeRect(0, 0, canvas.width, canvas.height);
+            context.strokeStyle = "#01cdfa";
+            context.lineWidth = 8;
+            context.strokeRect(0, 0, canvas.width, canvas.height);
             // Draw the YT play button
             // context.drawImage(playBtn, 150, 200, 300, 200);
 
-            if (data.poemTitle.length <= 16)
+            if (data.poemTitle.length <= 14) {
                 // Draw the Title
                 drawText(context, mainTitleProps);
+            }
             else {
                 poemTitleArray.forEach((poemTitleword, index) => {
                     const modifiedMainTitleProps = {
-                        y: (index + 1) * 120,
-                        font: mainTitleProps.font,
+                        y: (index + 1) * 250,
+                        font: titleFontDetails,
                         x: mainTitleProps.x,
                         textAlign: mainTitleProps.textAlign,
                         text: poemTitleword
@@ -127,16 +134,16 @@ module.exports = {
                 });
             }
 
-            var singerImg = new Image();
-            singerImg.src = 'public/images/profile-images/singerImg.jpg';
             // Draw the Singer Photo
             if (singerNameProps.text.length > 14) {
                 singerPicProps.x = 0.08 * width
                 singerNameTitleProps.x = 0.09 * width
             }
-            context.drawImage(singerImg, singerPicProps.x, singerPicProps.y, singerPicProps.width, singerPicProps.height)
-
-
+            var singerImg = new Image();
+            singerImg.onload = () => {
+                context.drawImage(singerImg, singerPicProps.x, singerPicProps.y, singerPicProps.width, singerPicProps.height)
+            };
+            singerImg.src = 'public/images/profile-images/singerImg.jpg';
 
             // Draw the Singer Title
             drawText(context, singerNameTitleProps);
@@ -145,10 +152,11 @@ module.exports = {
             drawText(context, singerNameProps);
 
             var writerImg = new Image();
+            writerImg.onload = () => {
+                // Draw the writer Photo
+                context.drawImage(writerImg, writerPicProps.x, writerPicProps.y, writerPicProps.width, writerPicProps.height)
+            };
             writerImg.src = 'public/images/profile-images/writerImg.jpg';
-            // Draw the writer Photo
-            context.drawImage(writerImg, writerPicProps.x, writerPicProps.y, writerPicProps.width, writerPicProps.height)
-
             // Draw the Writer Title
             drawText(context, writerNameTitleProps);
 

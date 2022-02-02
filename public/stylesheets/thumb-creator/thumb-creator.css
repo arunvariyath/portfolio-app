@@ -379,9 +379,6 @@ textarea.input2 + .focus-input2::after {
 .validate-input {
   position: relative;
 }
-.validate-input-file {
-  position: relative;
-}
 
 .alert-validate::before {
   content: attr(data-validate);

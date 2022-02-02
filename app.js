@@ -27,15 +27,18 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+// app.use('/js', express.static(__dirname + '/node_modules/bootstrap/dist/js')); // redirect bootstrap JS
+// app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css')); // redirect CSS bootstrap
+app.use('/css', express.static(__dirname + '/node_modules/bootstrap-icons/font')); // redirect CSS bootstrap
 app.use(fileUpload());
 
-db.connect((error) => {
+// db.connect((error) => {
 
-  if (error)
-    console.error("Database Connection Failed !" + error);
-  else
-    console.log("Database Connected!");
-})
+//   if (error)
+//     console.error("Database Connection Failed !" + error);
+//   else
+//     console.log("Database Connected!");
+// })
 
 app.use('/', indexRouter);
 app.use('/admin', adminRouter);

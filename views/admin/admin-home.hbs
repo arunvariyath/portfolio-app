@@ -1,21 +1,79 @@
 <main class="page">
     <section class="portfolio-block block-intro">
         <div class="container">
-            {{!-- <div class="avatar" style="background-image:url(&quot;/images/avatars/avatar.jpg&quot;);"></div> --}}
-            <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
-                <div class="hero-container" data-aos="fade-in">
-                    <h1>Tools</h1>
+            <!-- Carousel wrapper -->
+            <div id="carouselMultiItemExample" class="carousel slide carousel-dark text-center"
+                data-mdb-ride="carousel">
+                {{!-- <!-- Controls -->
+                <div class="d-flex justify-content-center mb-4">
+                    <button class="carousel-control-prev position-relative" type="button"
+                        data-mdb-target="#carouselMultiItemExample" data-mdb-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next position-relative" type="button"
+                        data-mdb-target="#carouselMultiItemExample" data-mdb-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div> --}}
+                <!-- Inner -->
+                <div class="carousel-inner py-4">
+                    <!-- Single item -->
+                    <div class="carousel-item active">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <div class="card">
+                                        <img src="/images/thumb-maker/Thumbnail Maker.png" class="card-img-top"
+                                            alt="thumbnail-maker" />
+                                        <div class="card-body">
+                                            <h5 class="card-title"> Thumpbnail Maker</h5>
+                                            <p class="card-text">
+                                                Create Youtube thumbanail images in one click !
+                                            </p>
+                                            <a href="/admin/thumbCreator" class="btn btn-primary">Create Thumpbnail</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {{!-- <div class="col-lg-4 d-none d-lg-block">
+                                    <div class="card">
+                                        <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/182.webp"
+                                            class="card-img-top" alt="Sunset Over the Sea" />
+                                        <div class="card-body">
+                                            <h5 class="card-title">Card title</h5>
+                                            <p class="card-text">
+                                                Add New Singer details here
+                                            </p>
+                                            <a href="#!" class="btn btn-primary">Add Singer</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-4 d-none d-lg-block">
+                                    <div class="card">
+                                        <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/183.webp"
+                                            class="card-img-top" alt="Sunset over the Sea" />
+                                        <div class="card-body">
+                                            <h5 class="card-title">Card title</h5>
+                                            <p class="card-text">
+                                                Some quick example text to build on the card title and make up the bulk
+                                                of the card's content.
+                                            </p>
+                                            <a href="#!" class="btn btn-primary">Button</a>
+                                        </div>
+                                    </div>
+                                </div> --}}
+                            </div>
+                        </div>
+                    </div>
+
+
                 </div>
-            </section>
-        </div>
-    </section>
-    <section class="portfolio-block photography">
-        <div class="container">
-            <div class="row g-0">
-                <div class="col-md-6 col-lg-4 item zoom-on-hover"></div>
-                <div class="col-md-6 col-lg-4 item zoom-on-hover"></div>
-                <div class="col-md-6 col-lg-4 item zoom-on-hover"></div>
+                <!-- Inner -->
             </div>
+            <!-- Carousel wrapper -->
         </div>
     </section>
 </main>

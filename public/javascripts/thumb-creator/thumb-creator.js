@@ -111,7 +111,9 @@
         $(this).click(function () {
             var filename = $(this).attr('src').split("/").pop()
             $('#bgImageName').val(filename);
+            $('#bgImageNameIcon').attr('src', $(this).attr('src'));
             $('#bgImageName').addClass('has-val');
+            $('#bgImageNameIcon').removeClass('d-none');
             $('#closePopBtn').trigger('click');
 
         });

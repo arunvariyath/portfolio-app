@@ -6,25 +6,26 @@
             </div>
             <div class="row">
                 {{#each galleryImages}}
-                <div class="col-lg-4 col-md-12 mb-4 mb-lg-0 item position-relative">
-                    <a href="#!" data-bs-toggle="modal" data-bs-target="#Image{{@index}}">
-                        <img class="img-fluid image w-100 shadow-1-strong rounded mb-4" src="{{this.imageSrc}}"></a>
-                </div>
-                <div class="modal fade" id="Image{{@index}}" tabindex="-1" aria-labelledby="Image{{@index}}Label"
-                    aria-hidden="true">
-                    <div class="modal-dialog modal-lg">
-                        <div class="modal-content">
-                            <img class="img-fluid image shadow-1-strong rounded" src="{{this.imageSrc}}">
-                            <span class="badge bg-secondary text-center"
-                                style="width: 100%;">{{this.imageDescription}}</span>
-                            <div class="text-center py-3">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                                    Close
-                                </button>
+                    <div class="col-lg-3 col-md-12 mb-4 mb-lg-0 item position-relative">
+                        <a href="#!" data-bs-toggle="modal" data-bs-target="#Image{{@index}}">
+                            <img class="img-fluid image w-100 shadow-1-strong rounded mb-4"
+                                src="https://drive.google.com/thumbnail?id={{this.imageSrc}}"></a>
+                    </div>
+                    <div class="modal fade" id="Image{{@index}}" tabindex="-1" aria-labelledby="Image{{@index}}Label"
+                        aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <img class="img-fluid image shadow-1-strong rounded" src="https://drive.google.com/thumbnail?id={{this.imageSrc}}">
+                                <span class="badge bg-secondary text-center"
+                                    style="width: 100%;">{{this.imageDescription}}</span>
+                                <div class="text-center py-3">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                        Close
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
                 {{/each}}
             </div>
     </section>

@@ -41,7 +41,8 @@
                         </div>
                         <div class="mb-3 pb-3">
                             <label for="poemSingerImgFile" class="form-label">Select an image of the Singer</label>
-                            <input class="form-control" type="file" id="singerImgFile" name="singerImg" required>
+                            <input class="form-control" type="file" id="singerImgFile" name="singerImg" required
+                                accept="image/png, image/gif, image/jpeg">
                         </div>
                         <div class="wrap-input2 validate-input mt-2" data-validate="Writer Name is required">
                             <input class="input2" type="text" name="poemWriterName" value="രുദ്രൻ വാരിയത്ത്"
@@ -49,7 +50,8 @@
                         </div>
                         <div class="mb-3">
                             <label for="writerSingerImgFile" class="form-label">Select an image of the Writer</label>
-                            <input class="form-control" type="file" id="writerImgFile" name="writerImg" required>
+                            <input class="form-control" type="file" id="writerImgFile" name="writerImg" required
+                                accept="image/png, image/gif, image/jpeg">
                         </div>
 
                         <div class="pt-3">
@@ -58,15 +60,16 @@
                                     Select Background Image
                                 </button>
                             </a>
+
+
                             <div class="wrap-input2 validate-input text-center"
                                 data-validate="Background Image should be Selected">
-                                <input class="input2" type="text" id="bgImageName" name="bgImageName" readonly
-                                    value="thum-bg-01.png">
-                                <span class="focus-input2" data-placeholder=""></span>
+                                <input class="input2 d-none" type="text" id="bgImageName" name="bgImageName" readonly value="background-img-022.png">
+                                <img id="bgImageNameIcon" class="img-fluid img-thumbnail d-none">
                             </div>
                         </div>
 
-                        <div class="container-contact2-form-btn">
+                        <div class=" container-contact2-form-btn">
                             <div class="wrap-contact2-form-btn">
                                 <div class="contact2-form-bgbtn"></div>
                                 <button class="contact2-form-btn">
@@ -91,8 +94,8 @@
                             </span>
                             <div class="row m-2">
                                 {{#each templateImages}}
-                                    <div class="col-lg-3 col-md-12 mb-4 mb-lg-0 item position-relative">
-                                        <img class="img-fluid image w-100 shadow-1-strong rounded mb-4 imgPoppedUp"
+                                    <div class="col-lg-3 col-md-12 mb-4 mb-lg-0 item position-relative ">
+                                        <img class="img-fluid image w-100 shadow-1-strong rounded mb-4 imgPoppedUp img-thumbnail"
                                             src="{{this.imageSrc}}">
                                     </div>
                                 {{/each}}

@@ -38,6 +38,7 @@ router.post('/thumbCreator', function (req, res, next) {
   const es = req.body;
 
   let singerImg = req.files.singerImg
+  
   singerImg.mv('public/images/profile-images/singerImg.jpg', (err, done) => {
     if (!err) {
       let writerImg = req.files.writerImg
