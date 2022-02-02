@@ -109,7 +109,7 @@ module.exports = {
             context.drawImage(image, 0, 0, imageProps.width, imageProps.height)
             // Draw the YT play button
             // context.drawImage(playBtn, 150, 200, 300, 200);
-           
+
             if (data.poemTitle.length <= 16)
                 // Draw the Title
                 drawText(context, mainTitleProps);

@@ -1,6 +1,6 @@
 var express = require('express');
 const fs = require('fs');
-
+const templateImages = []
 
 var router = express.Router();
 const { createThumbnailImage } = require('../helpers/thumb-creator-helper');
@@ -16,15 +16,23 @@ router.get('/home', function (req, res, next) {
 router.get('/login', function (req, res, next) {
   res.render('admin/login', { title: 'Login', other: false, admin: true });
 });
+const myPromise = new Promise((resolve, reject) => {
+  resolve();
+});
 
 /* GET Thumbnail Creater Page. */
 router.get('/thumbCreator', function (req, res, next) {
 
-  //imageSrc
-  const templateImages = getTemplateImages();
-  // console.log(templateImages);
-  res.render('admin/thumb-creator', { title: 'Thumbnail creator', other: true, templateImages, admin: true });
+
+  myPromise
+    .then(() => {
+      getThumnailImages(res)
+    }, () => { console.error("promise failed") });
 });
+
+// const myPromise = new Promise((resolve, reject) => {
+//   resolve();
+// });
 /* POST Thumbnail Creater Page. */
 router.post('/thumbCreator', function (req, res, next) {
   const es = req.body;
@@ -52,20 +60,18 @@ router.post('/thumbCreator', function (req, res, next) {
 
 
 });
-
-
-
-function getTemplateImages () {
-  const dir = 'public/images/templateImages';
-  let templateImages = []
+function getThumnailImages (res) {
+  const dir = 'public/images/templateImages'
   fs.readdir(dir, (err, files) => {
+    if (!err) {
+      files.forEach((file) => {
+        templateImages.push({ imageSrc: '/images/templateImages/' + file })
+      })
 
+      res.render('admin/thumb-creator', { title: 'Thumbnail creator', other: true, templateImages, admin: true });
 
-    files.forEach((file) => {
-      templateImages.push({ imageSrc: '/images/templateImages/' + file })
-    })
+    } else { console.error(err); }
+
   });
-  return templateImages;
-};
-
+}
 module.exports = router;
