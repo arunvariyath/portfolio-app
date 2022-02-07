@@ -1,6 +1,5 @@
 var express = require('express');
 const fs = require('fs');
-const templateImages = []
 
 var router = express.Router();
 const { createThumbnailImage } = require('../helpers/thumb-creator-helper');
@@ -65,6 +64,7 @@ function getThumnailImages (res) {
   const dir = 'public/images/templateImages'
   fs.readdir(dir, (err, files) => {
     if (!err) {
+      const templateImages = []
       files.forEach((file) => {
         templateImages.push({ imageSrc: '/images/templateImages/' + file })
       })
