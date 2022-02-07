@@ -1,7 +1,7 @@
 var express = require('express');
 const jsdom = require('jsdom')
 var router = express.Router();
-var connection = require('../config/connection');
+// var connection = require('../config/connection');
 var galleryImageHelper = require('../helpers/gallery-image-helper');// 
 // const fs = require('fs')
 // const { registerFont, createCanvas, loadImage } = require('canvas')
@@ -12,7 +12,7 @@ const $ = require('jquery')(dom.window)
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
-  connection.get().collection('gallery-images').insertOne({imgSrc:"test.png"}).then((data)=>console.log("inserted successfully"))
+  // connection.get().collection('gallery-images').insertOne({imgSrc:"test.png"}).then((data)=>console.log("inserted successfully"))
   res.render('index', { title: 'Home', other: true })
 });
 /* GET home page. */
