@@ -50,7 +50,7 @@ module.exports = {
 
       let mainTitleProps = {
         y: 350,
-        font: "350px 'Manjari-Bold'",
+        font: "250px 'Manjari-Bold'",
         x: 0.5 * width,
         textAlign: "center",
         text: data.poemTitle,
