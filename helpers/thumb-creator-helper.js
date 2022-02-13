@@ -7,7 +7,6 @@ module.exports = {
     if (data.bgImageName == "" || data.bgImageName == undefined)
       imageLocation = defaultImageLocation;
     else imageLocation = getImageFromLocation(data.bgImageName);
-git
     // Load and draw the background image first
     Canvas.loadImage(imageLocation).then((image) => {
       // We need to register our font file to be used in canvas

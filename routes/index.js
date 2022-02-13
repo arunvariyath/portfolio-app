@@ -1,7 +1,7 @@
 var express = require('express');
 const jsdom = require('jsdom')
 var router = express.Router();
-// var connection = require('../config/connection');
+var connection = require('../config/connection');
 var galleryImageHelper = require('../helpers/gallery-image-helper');// 
 // const fs = require('fs')
 // const { registerFont, createCanvas, loadImage } = require('canvas')
@@ -66,12 +66,12 @@ router.get('/about', function (req, res, next) {
 });
 /* GET about page. */
 router.get('/family-tree', function (req, res, next) {
-
-  galleryImageHelper.getAllMembers().then((data)=>{
-    // console.log(JSON.parse(data));
-    // let nods=JSON.parse(data) 
-    res.render('family-tree', { title: 'My Family', other: true,members: nods})
-  })
+  res.render('family-tree', { title: 'My Family', other: true})
+  // galleryImageHelper.getAllMembers().then((data)=>{
+  //   // console.log(JSON.parse(data));
+  //   // let nods=JSON.parse(data) 
+  //   res.render('family-tree', { title: 'My Family', other: true,members: nods})
+  // })
  
 });
 

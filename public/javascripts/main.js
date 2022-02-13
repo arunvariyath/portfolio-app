@@ -142,11 +142,11 @@ function _calculateAge(birthday) {
   var ageDate = new Date(ageDifMs); // miliseconds from epoch
   return Math.abs(ageDate.getUTCFullYear() - 1970);
 }
-// jQuery(function () {
-// if ($('#tree').length)
-// createFamilyTree();
+jQuery(function () {
+if ($('#tree').length)
+createFamilyTree();
 
-// });
+});
 
 $(document).on("click", ".video-holder", function () {
   var poemId = $(this).data("id");
@@ -207,7 +207,7 @@ async function createFamilyTree() {
       { id: 25, mid: 24, fid: 18, name: "Anjana" },
       { id: 26, mid: 24, fid: 18, name: "Adhidev" },
       { id: 27, mid: 24, fid: 18, name: "Archana" },
-      { id: 28, pids: [29], name: "Jayarani" },
+      { id: 28, pids: [29], mid: 31, fid: 30, name: "Jayarani" },
       { id: 29, pids: [28], mid: 67, fid: 66, name: "Mohandas" },
       { id: 30, pids: [31], name: "Rani's Dad" },
       { id: 31, pids: [30], name: "Rani's Mom" },
