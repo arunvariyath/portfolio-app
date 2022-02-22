@@ -12,7 +12,7 @@ const $ = require('jquery')(dom.window)
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
-  connection.get().collection('gallery-images').insertOne({imgSrc:"test.png"}).then((data)=>console.log("inserted successfully"))
+  // connection.get().collection('gallery-images').insertOne({imgSrc:"test.png"}).then((data)=>console.log("inserted successfully"))
   res.render('index', { title: 'Home', other: true })
 });
 /* GET home page. */
@@ -66,12 +66,12 @@ router.get('/about', function (req, res, next) {
 });
 /* GET about page. */
 router.get('/family-tree', function (req, res, next) {
-
-  galleryImageHelper.getAllMembers().then((data)=>{
-    // console.log(JSON.parse(data));
-    // let nods=JSON.parse(data) 
-    res.render('family-tree', { title: 'My Family', other: true,members: nods})
-  })
+  res.render('family-tree', { title: 'My Family', other: true})
+  // galleryImageHelper.getAllMembers().then((data)=>{
+  //   // console.log(JSON.parse(data));
+  //   // let nods=JSON.parse(data) 
+  //   res.render('family-tree', { title: 'My Family', other: true,members: nods})
+  // })
  
 });
 
