@@ -40,4 +40,4 @@ I have started this app for two purposes:
 
 To test the App, open a browser tab at http://localhost:3000/
 
-`NOTE : Some elemets are disabled in dpcker image`
+`NOTE : Some elemets are disabled in docker image`
